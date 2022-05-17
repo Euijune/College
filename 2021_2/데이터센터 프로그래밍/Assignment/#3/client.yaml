@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+  labels:
+    purpose: enter-nginx-webpage
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      purpose: enter-nginx-webpage 
+  template:
+    metadata:
+      labels:
+        purpose: enter-nginx-webpage
+    spec:
+      containers:
+      - name: client
+        image: e2june/client-3

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  labels:
+    purpose: operating-server
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      purpose: operating-server 
+  template:
+    metadata:
+      labels:
+        purpose: operating-server
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+          - containerPort: 80

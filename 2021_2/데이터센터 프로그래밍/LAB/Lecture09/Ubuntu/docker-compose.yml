@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  manager:
+    image: ubuntu:latest # https://hub.docker.com/_/ubuntu
+    tty: true # https://docs.docker.com/engine/reference/run/
+  worker1:
+    image: nginx # https://hub.docker.com/_/nginx
+    ports: # https://docs.docker.com/compose/compose-file/#ports
+      - "8001:80"
+  worker2:
+    image: nginx
+    ports:
+      - "8002:80"

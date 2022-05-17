@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  webserver:
+    image: nginx
+    ports:
+      - 8080:80
+  
+  webclient:
+    image: ubuntu
+    depends_on:
+      - webserver
+    command: bash -c "
+        apt-get update
+        && apt-get install curl
+        && curl http://localhost:80      
+      "
